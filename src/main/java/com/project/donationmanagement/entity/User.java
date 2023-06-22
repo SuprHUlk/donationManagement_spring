@@ -11,7 +11,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String pass;
-    @ManyToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
+    @ManyToMany(fetch=FetchType.EAGER, cascade= {CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(name="USER_ROLE",
             joinColumns = {
                 @JoinColumn(name = "USER_ID")
@@ -60,5 +60,13 @@ public class User {
 
     public void setRole(Set<Role> role) {
         this.role = role;
+    }
+
+    public String getRoleName() {
+        String returnValue=null;
+        for(Role role: role) {
+            returnValue=role.getRoleName();
+        }
+        return returnValue;
     }
 }

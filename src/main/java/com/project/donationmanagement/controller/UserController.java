@@ -27,5 +27,8 @@ public class UserController {
         catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
