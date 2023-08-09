@@ -1,0 +1,58 @@
+<div class="container">
+
+  <h1>SIGN UP</h1>
+
+  <div class="form-class">
+
+    <form action="" #authForm="ngForm">
+
+      <div class="field">
+        <label for="u_name">Username
+          <div class="error" *ngIf="errorMessage==='Username is not unique'">Username is not unique</div>
+        </label>
+        <input type="text" name="userName" id="u_name" ngModel required>
+      </div>
+
+      <div class="field">
+        <label for="f_name">First Name </label>
+        <input type="text" name="firstName" id="f_name" ngModel required>
+      </div>
+
+      <div class="field">
+        <label for="l_name">Last Name </label>
+        <input type="text" name="lastName" id="l_name" ngModel required>
+      </div>
+
+      <div class="field">
+        <label for="password">Password </label>
+        <input type="password" name="pass" id="password" ngModel [(ngModel)]="password" required>
+      </div>
+
+      <div class="field">
+        <label for="password_check">Re-enter password
+          <div class="error" *ngIf="errorMessage==='Password does not match'">Password doesn't match</div>
+        </label>
+        <input type="password" name="rePassword" id="password_check" [(ngModel)]="rePassword" required>
+      </div>
+
+      <div class="field" ngModelGroup="role">
+        <label for="role">Role: </label>
+        <select id="role" name="roleName" ngModel required>
+          <option value="ngo">Ngo</option>
+          <option value="donor">Donor</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <div class="error" *ngIf="errorMessage==='UNKNOWN_ERROR'">An unexpected error occurred!!</div>
+        <button type="submit"
+          value="Login"
+          (click)="onSubmit(authForm)"
+          [disabled]=(!authForm.valid)>Submit</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

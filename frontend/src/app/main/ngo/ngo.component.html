@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="name">
+    <p class="heading">Name</p>
+    <div class="list" *ngFor="let ngo of ngos">
+      <p>{{ ngo.firstName }}</p>
+    </div>
+  </div>
+  <div class="username">
+    <p class="heading">Username</p>
+    <div class="list" *ngFor="let ngo of ngos">
+      <p>{{ ngo.userName }}</p>
+    </div>
+  </div>
+  <div class="address">
+    <p class="heading">Address</p>
+    <div class="list" *ngFor="let ngo of ngos">
+      <p>{{ ngo.address }}</p>
+    </div>
+  </div>
+  <div class="contact">
+    <p class="heading">Contact</p>
+    <div class="list" *ngFor="let ngo of ngos">
+      <p>{{ ngo.email }}</p>
+    </div>
+  </div>
+  <div class="donate">
+    <p class="heading">Donate</p>
+    <div class="list" *ngFor="let ngo of ngos">
+      <div class="wrapper">
+        <input type="text">
+        <button (click)="onClick()">Donate</button>
+      </div>
+    </div>
+  </div>
+</div>

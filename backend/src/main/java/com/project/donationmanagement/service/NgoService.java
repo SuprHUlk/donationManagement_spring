@@ -39,6 +39,8 @@ public class NgoService {
         Ngo existingNgo=ngoRepository.findById(ngo.getUserName()).orElse(null);
         existingNgo.setFirstName(ngo.getFirstName());
         existingNgo.setLastName(ngo.getLastName());
+        existingNgo.setEmail(ngo.getEmail());
+        existingNgo.setAddress(ngo.getAddress());
         userRepository.save(existingUser);
         return ngoRepository.save(existingNgo);
     }

@@ -51,7 +51,7 @@ public class UserService {
 
     public User registerNewUser(User user) throws Exception {
         if(userRepository.existsById(user.getUserName())) {
-            throw new IllegalArgumentException("Username not unique");
+            throw new IllegalArgumentException("Username is not unique");
         }
         if(user.getRoleName().equals("ngoRole")) {
             addToNgoRepository(user);

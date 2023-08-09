@@ -1,0 +1,14 @@
+<div class="container">
+  <nav>
+    <div class="wrapper">
+      <h1>DMA</h1>
+      <button type="button" (click)="page='ngo'">Ngo</button>
+      <button type="button" (click)="page='donation'">Donation</button>
+    </div>
+    <button type="button" (click)="logout()">Log Out</button>
+  </nav>
+  <div class="app" [ngSwitch]="page">
+    <app-ngo *ngSwitchCase="'ngo'"></app-ngo>
+    <app-donation *ngSwitchCase="'donation'"></app-donation>
+  </div>
+</div>

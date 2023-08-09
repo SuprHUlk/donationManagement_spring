@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>LOGIN</h1>
+  <div class="wrapper">
+    <form action="" #authForm="ngForm">
+      <div class="field">
+        <label for="userName">Username</label>
+        <input type="text" name="userName" id="userName" ngModel required>
+      </div>
+      <div class="field">
+        <label for="pass">Password</label>
+        <input type="pass" name="pass" id="pass" ngModel required>
+      </div>
+      <div class="field">
+        <div class="error" *ngIf="errorMessage==='ERROR'">Username or Password is wrong.</div>
+        <button type="submit"
+          value="Login"
+          (click)="onSubmit(authForm)"
+          [disabled]=(!authForm.valid)>Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

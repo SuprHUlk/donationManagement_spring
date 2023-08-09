@@ -40,8 +40,8 @@ public class WebSecurityConfig {
         http
                 .csrf().disable()
                 .authorizeHttpRequests((authorize)->authorize
-//                        .requestMatchers("/authenticate", "/registerNewUser", "/getNgoById/**", "/getDonorById/**").permitAll()
-                                .requestMatchers("/**").permitAll()
+                        .requestMatchers("/authenticate", "/registerNewUser").permitAll()
+//                        .requestMatchers("/**").permitAll()
                         .requestMatchers(HttpHeaders.ALLOW).permitAll()
                         .anyRequest().authenticated()
                 )

@@ -4,6 +4,7 @@ import com.project.donationmanagement.entity.User;
 import com.project.donationmanagement.service.UserService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,13 +23,14 @@ public class UserController {
     public ResponseEntity<String> registerNewUser(@RequestBody User user) {
         try {
             userService.registerNewUser(user);
-            return ResponseEntity.ok("User registration successful");
+            return ResponseEntity.ok("{\"message\": \"User registration successful\"}");
         }
         catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
         catch (Exception e) {
-            throw new RuntimeException(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("{\"message\": \"An internal server error occurred.\"}");
         }
     }
 }
